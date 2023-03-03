@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generater</title>
+    <script>
+    function show() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+    function genPassword() {
+        var chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var passwordLength = 16;
+        var password = "";
+        for (var i = 0; i <= passwordLength; i++) {
+            var randomNumber = Math.floor(Math.random() * chars.length);
+            password += chars.substring(randomNumber, randomNumber +1);
+        }
+        document.getElementById("password").value = password;
+
+    }
+    function copyPassword() {
+  var copyText = document.getElementById("password");
+  copyText.select();
+  document.execCommand("copy");
+  
+}
+
+</script>
+<style>
+.box {
+  
+  background-color: lightblue;
+  width: auto;
+  border: 3px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+h2{
+
+}
+.pbox {
+  width: 240px;
+  height: 25px;
+  border: px solid black;
+  border-radius: 4px;
+  background-color: lightgray;
+  font-size: 20px;
+  font-family: sans-serif;
+  
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+    <div class="body">
+    
+ <div class="box">
+         <h2>Password Generater</h2>
+        <input type="password" class = "pbox" name=""  id="password" readonly><br>
+        <input type="checkbox" onclick="show()">Show Password<br>
+          <button class="button" onclick="genPassword()">Generate</button>
+          <button class="button" onclick="copyPassword()">Copy</button>
+        
+    </div>
+    </div>
+</body>
+
+</html>
